@@ -23,6 +23,7 @@ A. See previous, previous Answer.
 * ATX PSU
 * 2x Switch
 * Arduino Ethernet Shield
+* Some sort of on-slip material IE http://www.amazon.com/Grip-Shelf-Drawer-Liner-Black/dp/B000KFSOFI
 
 ## Instructions
 * Laser cut the hardware using the files in "laser-cutting"
