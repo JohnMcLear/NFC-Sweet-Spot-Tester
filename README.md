@@ -12,19 +12,24 @@ Q. Where do I hold the NFC Ring to on my phone.
 A. See previous, previous Answer.
 
 ## Requirements
-* Laser printer
-* Arduino
-* m6 nuts and bolts
-* various cables
-* 2x stepper motors (details reqired)
-* 2x stepper motor controllers (details reqired)
+* Laser cutter
+* Arduino 
+* 50x m6 nuts and bolts (Various thread sizes) (see pictures)
+* Various cables (see pictures)
+* Breadboard
+* 2x stepper motors - 4218S-04
+* 2x stepper motor controllers - http://www.schmalzhaus.com/EasyDriver/ v4.3+
 * Threaded rod
+* ATX PSU
+* 2x Switch
+* Arduino Ethernet Shield
 
 ## Instructions
-Print the hardware using the files in "laser-cutting"
-Connect all the arduino stuff up and the motors.
-See pictures for reference
-More details coming soon.
+* Laser cut the hardware using the files in "laser-cutting"
+* Connect all the arduino stuff up and the motors. (See pictures for reference)
+* Load up the source, change some variables (See top of source).
+* Install NFC Ring App on device, select Scan QR Code.  Scan a QR Code that has http://nfcring.com/NFC-Sweet-Spot-Test encoded (You can encode this at http://nfcring.com/app).  Follow the on screen instructions.
+* Power up the Hardware
 
 ## License
 Apache 2
