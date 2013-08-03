@@ -34,3 +34,5 @@ A. See previous, previous Answer.
 ## License
 Apache 2
 
+## Can I purchase one of these bad mofos pre-built?
+For just $800 you can have one of these tools sat on your desk, drop john@mclear.co.uk an email if you want one.
