@@ -171,19 +171,20 @@ void takeSample(){
         if (c == '\n' && currentLineIsBlank) {
           // send a standard http response header
           client.println("HTTP/1.1 200 OK");
-          client.println("Content-Type: text/html");
+          client.println("Content-Type: application/json");
           client.println("Connection: close");  // the connection will be closed after completion of the response
       
           client.println();
-          client.println("<!DOCTYPE HTML>");
-          client.println("<html><body>{");
+//          client.println("<!DOCTYPE HTML>");
+//          client.println("<html><body>{");
           // output the value of each analog input pin
-          client.print("x:");       
+          client.print("{x:");       
           client.print(x);       
           client.print(",");
-          client.print("y");       
+          client.print("y:");       
           client.print(y);      
-          client.println("}</body></html>");
+          client.println("}");
+          // </body></html>");
           break;
         }
         if (c == '\n') {
