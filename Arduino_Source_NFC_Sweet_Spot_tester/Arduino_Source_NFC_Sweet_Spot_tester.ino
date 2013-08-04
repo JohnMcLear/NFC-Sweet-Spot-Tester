@@ -1,8 +1,8 @@
-  /*******************************
-  *
-  * RESET THE MACHINE BACK TO 0,0 
-  *
-  ********************************/
+/*******************************
+*
+* PIN DECLARATIONS
+*
+********************************/
 
 // motors (x and y)
 int pinXStep = 2;
@@ -16,6 +16,12 @@ int pinYSwitch = 11;
 
 int pinEnable  = 8; // not used...
 
+/*******************************
+*
+* ENVIRONMENT DECLARATIONS
+*
+********************************/
+
 //Direction Variables
 int xCCW = LOW;
 int xCW = HIGH;
@@ -26,14 +32,13 @@ int step = 10000; // The size of the step to take when resetting
 
 int stepSpeed = 50*5; //milliseconds delay between pulses
 
-long widthSteps = 105000;
-long heightSteps = 140000;
+long widthSteps = 105000; // The Width we should move across (Y)
+long heightSteps = 120000; // The Height we should move across (X)
+long widthDivisions = 10; // How many steps across should we take on our journey?
+long heightDivisions = 10; // How many steps up should we take on our journey?
 
-long widthDivisions = 10;
-long heightDivisions = 10;
-
-int testDelay = 1000;
-int sampleDelay = 1000;
+int testDelay = 1000; // The delay to wait for to move to the next point
+int sampleDelay = 1000; // The delay to wait for the NFC to register.
 
 int reset = 0; // has reset been completed?
 int xReset = 0; // is X reset?
@@ -45,7 +50,6 @@ void setup() {
   pinMode(pinXSwitch, INPUT);
   pinMode(pinYSwitch, INPUT);
  
-
   delay(500);
   pinMode(pinXStep, OUTPUT);
   pinMode(pinXDir, OUTPUT);
