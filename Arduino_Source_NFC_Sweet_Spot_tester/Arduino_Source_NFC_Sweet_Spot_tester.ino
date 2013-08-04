@@ -32,14 +32,15 @@ int pinYSwitch = 8;
 *
 ********************************/
 
+// Variable we use to share X and Y
+int x = 0; // current X position
+int y = 0; // current Y position
+
 //Direction Variables
 int xCCW = LOW;
 int xCW = HIGH;
 int yCCW = LOW;
 int yCW = HIGH;
-
-int x = 0; // current X position
-int y = 0; // current Y position
 
 int step = 10000; // The size of the step to take when resetting
 
@@ -91,7 +92,7 @@ void loop() {
   *
   ********************************/
   
-  if (reset == 0){ // Should we be resetting the position?
+  if (reset == 0){ // Is reset completed yet?  (on first run this is 0)
     // Until PinX Goes High Reset the motor
     Serial.println("Resetting");
     
@@ -119,6 +120,8 @@ void loop() {
       }
     }
     reset = 1; // reset is now completed, yay :)
+    x = 0; // current X position is reset
+    y = 0; // current Y position
   }
 
   /*******************************
@@ -128,15 +131,16 @@ void loop() {
   ********************************/
   
   for(int height = 0; height < heightDivisions; height++){
+    y = 0; // reset y back to 0
     for(int width = 0; width <  widthDivisions; width++){
       moveY(widthSteps/widthDivisions);
       takeSample();      
     }
 
     while(digitalRead(pinYSwitch) == 0){ // While the switch isn't depressed
-        // Serial.println("Moving Y back to 0");
-        moveY(-500);
-      }
+      // Serial.println("Moving Y back to 0");
+      moveY(-500);
+    }
     delay(testDelay);  
     moveX(heightSteps/heightDivisions);
     delay(testDelay);
@@ -172,12 +176,14 @@ void takeSample(){
       
           client.println();
           client.println("<!DOCTYPE HTML>");
-          client.println("<html><body>");
+          client.println("<html><body>{");
           // output the value of each analog input pin
+          client.print("x:");       
           client.print(x);       
           client.print(",");
-          client.print(y);       
-          client.println("</body></html>");
+          client.print("y");       
+          client.print(y);      
+          client.println("}</body></html>");
           break;
         }
         if (c == '\n') {
@@ -198,10 +204,11 @@ void takeSample(){
 }
 
 void moveY(long steps){
-   if(steps < 0){
+   if(steps < 0){ // are we going backwards?
       digitalWrite(pinYDir, yCW);
    }else{
       digitalWrite(pinYDir, yCCW);  
+      y = y + (step);
    } 
   for(int i = 0; i < abs(steps); i++){
    digitalWrite(pinYStep, HIGH);
@@ -212,10 +219,11 @@ void moveY(long steps){
 } 
   
 void moveX(long steps){
-   if(steps < 0){
+   if(steps < 0){ // are we going backwards?
       digitalWrite(pinXDir, xCW);
    }
    else{
+      x = x + (step);
       digitalWrite(pinXDir, xCCW);  
    } 
   for(int i = 0; i < abs(steps); i++){
