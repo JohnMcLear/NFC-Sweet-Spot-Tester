@@ -112,7 +112,6 @@ void loop() {
       Serial.println(digitalRead(pinYSwitch));
       // Until PinY Goes High Reset the motor
       while(digitalRead(pinYSwitch) == 0){ // While the switch isn't depressed
-        // Serial.println("Moving Y back to 0");
         moveY(-500);
       }
       if(digitalRead(pinYSwitch) == 1){
@@ -173,18 +172,13 @@ void takeSample(){
           client.println("HTTP/1.1 200 OK");
           client.println("Content-Type: application/json");
           client.println("Connection: close");  // the connection will be closed after completion of the response
-      
           client.println();
-//          client.println("<!DOCTYPE HTML>");
-//          client.println("<html><body>{");
-          // output the value of each analog input pin
           client.print("{x:");       
           client.print(x);       
           client.print(",");
           client.print("y:");       
           client.print(y);      
           client.println("}");
-          // </body></html>");
           break;
         }
         if (c == '\n') {
