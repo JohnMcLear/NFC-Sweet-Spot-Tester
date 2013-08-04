@@ -149,6 +149,7 @@ void loop() {
     moveY(widthSteps/widthDivisions);
     takeSample();      
   }
+  
   moveY(-widthSteps);
   moveX(-heightSteps);
   delay(10000);
