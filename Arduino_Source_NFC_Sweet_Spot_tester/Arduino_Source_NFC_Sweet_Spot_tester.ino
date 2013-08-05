@@ -174,10 +174,10 @@ void takeSample(){
           client.println("Content-Type: application/json");
           client.println("Connection: close");  // the connection will be closed after completion of the response
           client.println();
-          client.print("{x:");       
+          client.print("{'x':");       
           client.print(x);       
           client.print(",");
-          client.print("y:");       
+          client.print("'y':");       
           client.print(y);      
           client.println("}");
           break;
