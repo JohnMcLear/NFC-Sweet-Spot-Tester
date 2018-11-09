@@ -5,10 +5,15 @@ This hardware/software moves an NFC inlay (or an NFC Ring) over a mobile phone a
 
 ## What problems does this solve?
 Q. Does my [Insert one of a 3000 NFC handsets here] work with the NFC Ring?
+
 A. We will be able to visually show which point each ring will work with the NFC Ring on the specific device.
+
 Q. Where is the sweet spot on my phone?
+
 A. See previous Answer.
+
 Q. Where do I hold the NFC Ring to on my phone.
+
 A. See previous, previous Answer.
 
 ## Requirements
